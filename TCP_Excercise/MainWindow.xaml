@@ -5,37 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TCP_Excercise"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="550">
     <Grid>
-        <TabControl>
-            <TabItem Header="伺服器">
-                <Grid>
-                    <Label Content="伺服器端" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" FontSize="20"/>
-                    <Button Name="server_conn" Content="連線" HorizontalAlignment="Left" Margin="157,26,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="server_conn_Click"/>
-                    <Button Name="server_disconn" Content="斷線" HorizontalAlignment="Left" Margin="237,26,0,0" VerticalAlignment="Top" Width="75" Height="28" RenderTransformOrigin="0.539,1.862" Click="server_disconn_Click"/>
-                    <TextBlock x:Name="server_txt" Text="收到" HorizontalAlignment="Left" Margin="25,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="140" Width="449"/>
-                    <TextBlock Name="server_status" Text="狀態" HorizontalAlignment="Left" Margin="25,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="449"/>
-                    <TextBox Name="pass" HorizontalAlignment="Left" Height="23" Margin="345,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60"/>
-                    <TextBox Name="fail" HorizontalAlignment="Left" Height="23" Margin="414,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60"/>
-                    <Label Content="Pass" HorizontalAlignment="Left" Margin="345,3,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Label Content="Fail" HorizontalAlignment="Left" Margin="414,3,0,0" VerticalAlignment="Top" FontSize="14"/>
-                </Grid>
-            </TabItem>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="350" />
+            <ColumnDefinition Width ="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <TabControl>
+                <TabItem Name="server" Header="伺服器" >
+                    <Grid>
+                        <Label Content="伺服器端" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+                        <Button Name="server_conn" Content="連線" HorizontalAlignment="Left" Margin="105,17,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="server_conn_Click"/>
+                        <Button Name="server_disconn" Content="斷線" HorizontalAlignment="Left" Margin="185,17,0,0" VerticalAlignment="Top" Width="75" Height="28" RenderTransformOrigin="0.539,1.862" Click="server_disconn_Click"/>
+                        <TextBlock x:Name="server_txt" Text="收到" HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="309"/>
+                        <TextBlock Name="server_status" Text="狀態" HorizontalAlignment="Left" Margin="10,117,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="91" Width="309" Foreground="blue" FontSize="14"/>
+                        <TextBox Name="txt_input_S" Text="輸入文字" HorizontalAlignment="Left" Height="28" Margin="10,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.45,2.982"/>
+                        <Button x:Name="btn_input_S" Content="送出" HorizontalAlignment="Left" Margin="105,65,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="btn_inuput_S_Click" RenderTransformOrigin="-0.227,0.554"/>
+                    </Grid>
+                </TabItem>
 
-            <TabItem Header="用戶端">
-                <Grid>
-                    <Label Content="用戶端" HorizontalAlignment="Left" Margin="22,18,0,0" VerticalAlignment="Top" FontSize="20"/>
-                    <Button Name="client_conn" Content="連線" HorizontalAlignment="Left" Margin="119,25,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="client_conn_Click"/>
-                    <Button Name="client_disconn" Content="斷線" HorizontalAlignment="Left" Margin="199,25,0,0" VerticalAlignment="Top" Width="75" Height="28"/>
-                    <TextBox Name="txt_ip" Text="輸入IP" HorizontalAlignment="Left" Height="25" Margin="289,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
-                    <TextBox Name="txt_input" Text="輸入文字" HorizontalAlignment="Left" Height="25" Margin="22,68,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.45,2.982"/>
-                    <TextBlock x:Name="client_txt" Text="收到" HorizontalAlignment="Left" Margin="22,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="125" Width="466" RenderTransformOrigin="1.217,0.761"/>
-                    <TextBlock x:Name="client_status" Text="狀態" HorizontalAlignment="Left" Margin="22,98,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="22" Width="466"/>
-                    <Button x:Name="btn_input" Content="送出" HorizontalAlignment="Left" Margin="168,65,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="btn_inuput_Click"/>
-                </Grid>
-            </TabItem>
-            <Button Content="Button" Height="100" Width="75"/>
-        </TabControl>
-        <TextBlock HorizontalAlignment="Left" Margin="-160,166,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                <TabItem Name="client" Header="用戶端" >
+                    <Grid>
+                        <Label Content="用戶端" HorizontalAlignment="Left" Margin="22,18,0,0" VerticalAlignment="Top" FontSize="20"/>
+                        <Button Name="client_conn" Content="連線" HorizontalAlignment="Left" Margin="95,35,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="client_conn_Click"/>
+                        <Button Name="client_disconn" Content="斷線" HorizontalAlignment="Left" Margin="175,35,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="client_disconn_Click"/>
+                        <TextBox Name="txt_ip" Text="輸入IP" HorizontalAlignment="Left" Height="25" Margin="95,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="127"/>
+                        <TextBox Name="txt_input" Text="輸入文字" HorizontalAlignment="Left" Height="28" Margin="22,79,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.45,2.982"/>
+                        <TextBlock x:Name="client_txt" Text="收到" HorizontalAlignment="Left" Margin="22,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="312" RenderTransformOrigin="1.217,0.761"/>
+                        <TextBlock x:Name="client_status" Text="狀態" HorizontalAlignment="Left" Margin="22,112,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="86" Width="312" Foreground="Blue" FontSize="14"/>
+                        <Button x:Name="btn_input" Content="送出" HorizontalAlignment="Left" Margin="95,79,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="btn_inuput_Click" RenderTransformOrigin="-0.138,0.185"/>
+                    </Grid>
+                </TabItem>
+                <Button Content="Button" Height="100" Width="75"/>
+            </TabControl>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Label Content="Total__Pass" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Label Content="Total__Fail" HorizontalAlignment="Left" Margin="95,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Button x:Name="btn_Clear" Content="清除" HorizontalAlignment="Left" Margin="91,88,0,0" VerticalAlignment="Top" Width="75" Height="28" Click="btn_Clear_Click"/>
+            <TextBlock Name="txt_totlpass" HorizontalAlignment="Left" Height="31" Margin="10,44,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69" Background="Green" FontSize="25"/>
+            <TextBlock Name="txt_totlfail" HorizontalAlignment="Left" Height="31" Margin="95,44,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="71" Background="Red" FontSize="25"/>
+            <TextBlock x:Name="txt_pass" HorizontalAlignment="Left" Height="23" Margin="10,182,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" Background="Green"/>
+            <TextBlock x:Name="txt_fail" HorizontalAlignment="Left" Height="23" Margin="95,182,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" Background="Red"/>
+            <Label Content="Pass" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Label Content="Fail" HorizontalAlignment="Left" Margin="95,154,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Button x:Name="btn_pass" Content="Pass" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="60" Height="28" Click="btn_pass_Click" />
+            <Button x:Name="btn_fail" Content="Fail" HorizontalAlignment="Left" Margin="95,237,0,0" VerticalAlignment="Top" Width="60" Height="28" Click="btn_fail_Click" />
+        </Grid>
     </Grid>
 </Window>
